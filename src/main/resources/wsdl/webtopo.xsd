@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by christophe duquesne (Dryade SARL) -->
+<xsd:schema xmlns:topo="http://xsd.webtopo/"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://xsd.webtopo/"
+           elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" id="topo">
+  <xsd:complexType name="TopologyVersionRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestorRef" type="xsd:NMTOKEN" />
+      <xsd:element name="lineNameList" type="xsd:boolean" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TopologyRequestType">
+    <xsd:sequence>
+      <xsd:element name="requestorRef" type="xsd:NMTOKEN" />
+      <xsd:element name="requestedLineList" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/> 
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TopologyVersionType">
+    <xsd:sequence>
+      <xsd:element name="topologyAvailable" type="xsd:boolean"/>
+      <xsd:element name="version" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="availableLineList" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/> 
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LineDefinitionType">
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="neptuneData" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TopologyType">
+    <xsd:sequence>
+      <xsd:element name="topologyAvailable" type="xsd:boolean"/>
+      <xsd:element name="version" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="lineDefinition" type="topo:LineDefinitionType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TopologyVersionRequest" type="topo:TopologyVersionRequestType"/>
+  <xsd:element name="TopologyRequest" type="topo:TopologyRequestType"/>
+  <xsd:element name="TopologyVersion" type="topo:TopologyVersionType"/>
+  <xsd:element name="Topology" type="topo:TopologyType"/>
+
+</xsd:schema>

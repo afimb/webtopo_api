@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Christophe Duquesne (DRYADE SA) -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+             xmlns:webTopo="http://soap.webtopo"
+             xmlns:topo="http://xsd.webtopo/"
+             targetNamespace="http://soap.webtopo">
+             
+	<import namespace="http://xsd.webtopo/" location="webtopo.xsd"/>
+   <message name="GetTopologyVersionRequestMessage">
+      <part name="parameters" element="topo:TopologyVersionRequest"/>
+   </message>
+	<message name="GetTopologyRequestMessage">
+		<part name="parameters" element="topo:TopologyRequest"/>
+	</message>
+	<message name="GetTopologyVersionResponseMessage">
+		<part name="parameters" element="topo:TopologyVersion"/>
+	</message>
+	<message name="GetTopologyResponseMessage">
+		<part name="parameters" element="topo:Topology"/>
+	</message>
+   
+	<portType name="SOAP-Port">
+		<operation name="GetTopologyVersion">
+			<input  message="webTopo:GetTopologyVersionRequestMessage"/>
+			<output message="webTopo:GetTopologyVersionResponseMessage"/>
+		</operation>
+		<operation name="getTopology">
+		    <input message="webTopo:GetTopologyRequestMessage"/>
+		    <output message="webTopo:GetTopologyResponseMessage"/>
+		</operation>
+	</portType>
+	<binding name="webTopoSOAPBinding" type="webTopo:SOAP-Port">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<!-- ==== Test  services ===== -->
+		<operation name="GetTopologyVersion">
+			<soap:operation soapAction="GetTopologyVersion"/>
+			<input>
+				<soap:body use="literal" namespace="http://soap.webtopo"/>
+			</input>
+			<output>
+				<soap:body use="literal" namespace="http://soap.webtopo"/>
+			</output>
+		</operation>
+		<operation name="getTopology">
+			<soap:operation soapAction="getTopology"/>
+			<input>
+				<soap:body use="literal" namespace="http://soap.webtopo"/>
+			</input>
+			<output>
+				<soap:body use="literal" namespace="http://soap.webtopo"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="WebTopo">
+		<port name="WebTopoPort" binding="webTopo:webTopoSOAPBinding">
+			<soap:address location="http://www.webtopo-location.com"/>
+		</port>
+	</service>
+</definitions>
