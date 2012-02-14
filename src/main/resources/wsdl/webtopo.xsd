@@ -36,9 +36,9 @@
       <xsd:element name="lineDefinition" type="topo:LineDefinitionType" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="TopologyVersionRequest" type="topo:TopologyVersionRequestType"/>
-  <xsd:element name="TopologyRequest" type="topo:TopologyRequestType"/>
-  <xsd:element name="TopologyVersion" type="topo:TopologyVersionType"/>
-  <xsd:element name="Topology" type="topo:TopologyType"/>
+  <xsd:element name="GetTopologyVersion" type="topo:TopologyVersionRequestType"/>
+  <xsd:element name="GetTopology" type="topo:TopologyRequestType"/>
+  <xsd:element name="GetTopologyVersionResponse" type="topo:TopologyVersionType"/>
+  <xsd:element name="GetTopologyResponse" type="topo:TopologyType"/>
 
 </xsd:schema>

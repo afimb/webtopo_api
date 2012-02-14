@@ -13,16 +13,16 @@
              
 	<import namespace="http://xsd.webtopo/" location="webtopo.xsd"/>
    <message name="GetTopologyVersionRequestMessage">
-      <part name="parameters" element="topo:TopologyVersionRequest"/>
+      <part name="parameters" element="topo:GetTopologyVersion"/>
    </message>
 	<message name="GetTopologyRequestMessage">
-		<part name="parameters" element="topo:TopologyRequest"/>
+		<part name="parameters" element="topo:GetTopology"/>
 	</message>
 	<message name="GetTopologyVersionResponseMessage">
-		<part name="parameters" element="topo:TopologyVersion"/>
+		<part name="parameters" element="topo:GetTopologyVersionResponse"/>
 	</message>
 	<message name="GetTopologyResponseMessage">
-		<part name="parameters" element="topo:Topology"/>
+		<part name="parameters" element="topo:GetTopologyResponse"/>
 	</message>
    
 	<portType name="SOAP-Port">
@@ -30,7 +30,7 @@
 			<input  message="webTopo:GetTopologyVersionRequestMessage"/>
 			<output message="webTopo:GetTopologyVersionResponseMessage"/>
 		</operation>
-		<operation name="getTopology">
+		<operation name="GetTopology">
 		    <input message="webTopo:GetTopologyRequestMessage"/>
 		    <output message="webTopo:GetTopologyResponseMessage"/>
 		</operation>
@@ -47,7 +47,7 @@
 				<soap:body use="literal" namespace="http://soap.webtopo"/>
 			</output>
 		</operation>
-		<operation name="getTopology">
+		<operation name="GetTopology">
 			<soap:operation soapAction="getTopology"/>
 			<input>
 				<soap:body use="literal" namespace="http://soap.webtopo"/>
