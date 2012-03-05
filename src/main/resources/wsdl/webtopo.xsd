@@ -13,6 +13,7 @@
   <xsd:complexType name="TopologyRequestType">
     <xsd:sequence>
       <xsd:element name="requestorRef" type="xsd:NMTOKEN" />
+      <xsd:element name="producerRef" type="xsd:NMTOKEN" minOccurs="0"/>
       <xsd:element name="requestedLineList" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/> 
     </xsd:sequence>
   </xsd:complexType>
